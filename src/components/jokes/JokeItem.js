@@ -1,6 +1,8 @@
 import styles from './JokeItem.module.css';
+import { Link, useLocation } from 'react-router-dom';
 
 const JokeItem = (props) => {
+  const location = useLocation();
   return (
     <li className={styles.item}>
       <figure>
@@ -9,7 +11,7 @@ const JokeItem = (props) => {
         </blockquote>
         <figcaption>{props.topic}</figcaption>
       </figure>
-      <a className='btn'>Expand</a>
+      <Link to={`${location.pathname}/${props.id}`} className='btn'>Expand</Link>
     </li>
   );
 };
